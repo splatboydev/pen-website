@@ -1,0 +1,41 @@
+---
+interface Props {
+	delay?: number;
+    type?: "swipe" | "fade"
+}
+
+const { delay, type } = Astro.props;
+---
+
+<span class="word">
+	<span class="inner" style={{ "--delay": delay, animationName: type }}><slot /></span>
+</span>
+
+<style>
+	.word {
+		overflow: hidden;
+		display: inline-block;
+	}
+	.inner {
+		display: inline-block;
+		animation: swipe 0.6s;
+		animation-delay: calc(var(--delay) * 0.2s);
+		animation-fill-mode: backwards;
+	}
+	@keyframes swipe {
+		from {
+			translate: 0 100%;
+		}
+		to {
+			translate: 0;
+		}
+	}
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+</style>

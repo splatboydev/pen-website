@@ -1,16 +1,19 @@
 ---
+import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
 	<div class="hero">
-		<div class="smaller">CONQUER <em>education.</em></div>
-		TOGETHER.
+		<div class="smaller"><Word delay={1}>CONQUER</Word> <Word delay={2}><em>education.</em></Word></div>
+		<Word delay={4}>TOGETHER.</Word>
 	</div>
 	<br />
-	<p>
-		Empowering Students Worldwide From Vancouver, BC.<br />
-		Real Impact and real results from our student community.
+	<p class="tagline">
+		<Word delay={1} type="fade"
+			>Empowering Students Worldwide From Vancouver, BC.<br />
+			Real Impact and real results from our student community.</Word
+		>
 	</p>
 	<section class="explore">
 		<div class="explore-cards">
@@ -68,12 +71,16 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
 	.hero {
-		font-size: 7rem;
+		font-size: 9rem;
 		margin-top: 0.5em;
 		line-height: 0.95;
 		.smaller {
-			font-size: 4rem;
+			font-size: 6rem;
 		}
+	}
+	.tagline {
+		font-size: 1.5em;
+		line-height: 1.25;
 	}
 	.explore {
 		display: flex;
@@ -200,7 +207,7 @@ import Layout from "../layouts/Layout.astro";
 		.steps-cards {
 			display: flex;
 			margin-top: 3em;
-            margin-bottom: 6em;
+			margin-bottom: 6em;
 			gap: 2em;
 			.steps-card {
 				display: flex;
@@ -213,19 +220,19 @@ import Layout from "../layouts/Layout.astro";
 				width: 17em;
 				height: 20em;
 				.card-image {
-                    height: 6em;
-                    width: 6em;
-                    background-color: red;
-                    margin-bottom: 1em;
+					height: 6em;
+					width: 6em;
+					background-color: red;
+					margin-bottom: 1em;
 				}
 				.card-title {
 					font-size: 1.4em;
-                    font-weight: bold;
+					font-weight: bold;
 				}
 				.card-desc {
 					font-size: 1.1em;
-                    text-align: center;
-                    margin: 0 1.4em;
+					text-align: center;
+					margin: 0 1.4em;
 				}
 			}
 		}
