@@ -1,16 +1,233 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+	<div class="hero">
+		<div class="smaller">CONQUER <em>education.</em></div>
+		TOGETHER.
+	</div>
+	<br />
+	<p>
+		Empowering Students Worldwide From Vancouver, BC.<br />
+		Real Impact and real results from our student community.
+	</p>
+	<section class="explore">
+		<div class="explore-cards">
+			<div class="explore-card">Tutoring</div>
+			<div class="explore-card">Study<br />Guides</div>
+			<div class="explore-card">Workshops</div>
+			<div class="explore-card">Socials</div>
+			<div class="explore-overlay">
+				<p class="explore-overlay-top">Explore</p>
+				<p class="explore-overlay-bottom"><em>our network.</em></p>
+			</div>
+		</div>
+	</section>
+	<section class="impact">
+		<h1>Our impact, by stats</h1>
+		<p><em>Check out our progress in empowering students!</em></p>
+		<div class="impact-cards">
+			<div class="impact-card">
+				<div class="card-value">9</div>
+				<div class="card-label">Student Materials Published</div>
+			</div>
+			<div class="impact-card">
+				<div class="card-value">0</div>
+				<div class="card-label">Users on Our Resources</div>
+			</div>
+			<div class="impact-card">
+				<div class="card-value">100+</div>
+				<div class="card-label">Hours Committed</div>
+			</div>
+		</div>
+		<div class="impact-box">With Students from 6 Schools Globally.</div>
+	</section>
+	<section class="steps">
+		<h1>How Pacific Education Network Tutoring Works</h1>
+		<p><em>Simple steps to access support from fellow students.</em></p>
+		<div class="steps-cards">
+			<div class="steps-card">
+				<div class="card-image"></div>
+				<div class="card-title">Submit Inquiry</div>
+				<div class="card-desc">Tell us what subjects you need help with and you specific challenges</div>
+			</div>
+			<div class="steps-card">
+				<div class="card-image"></div>
+				<div class="card-title">Match With Your Tutor</div>
+				<div class="card-desc">We connect you with high scoring students who excels in your subjects.</div>
+			</div>
+			<div class="steps-card">
+				<div class="card-image"></div>
+				<div class="card-title">Track Progress</div>
+				<div class="card-desc">Access study plans and monitor your improvement over time.</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		font-size: 7rem;
+		margin-top: 0.5em;
+		line-height: 0.95;
+		.smaller {
+			font-size: 4rem;
+		}
+	}
+	.explore {
+		display: flex;
+		margin-top: 12em;
+		align-items: center;
+		justify-content: center;
+	}
+	.explore-cards {
+		position: relative;
+		display: flex;
+		gap: 2.2em;
+		padding-right: 2.4em;
+		width: fit-content;
+		.explore-card {
+			width: 7em;
+			height: 10em;
+			border: #ffffff 2px solid;
+			border-radius: 0.4em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2em;
+			font-weight: bold;
+			text-align: center;
+			margin-top: calc(var(--n) * 6rem);
+			&:nth-child(1) {
+				--n: 0;
+			}
+			&:nth-child(2) {
+				--n: 1;
+			}
+			&:nth-child(3) {
+				--n: 2;
+			}
+			&:nth-child(4) {
+				--n: 3;
+			}
+		}
+		.explore-overlay {
+			position: absolute;
+			font-family: var(--font-montserrat);
+			font-weight: 700;
+			top: 0;
+			right: 0;
+			.explore-overlay-top {
+				position: absolute;
+				font-size: 5.3em;
+				top: 1.5rem;
+				right: 1.2em;
+			}
+			.explore-overlay-bottom {
+				position: absolute;
+				font-size: 2.4em;
+				top: 9rem;
+				right: 0;
+				width: max-content;
+			}
+		}
+	}
+	.impact {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 8em;
+		h1 {
+			font-family: var(--font-montserrat);
+			font-size: 3em;
+			margin: 0;
+		}
+		p {
+			font-size: 1.3em;
+		}
+		.impact-cards {
+			display: flex;
+			margin-top: 2em;
+			gap: 2em;
+			.impact-card {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 0.2em;
+				border: #ffffff 2px solid;
+				border-radius: 2.4rem;
+				width: 14em;
+				height: 9em;
+				line-height: 1.1;
+				&:nth-child(2) {
+					width: 18em;
+					.card-label {
+						font-size: 1.2em;
+					}
+				}
+				.card-value {
+					font-size: 4em;
+					font-weight: bold;
+				}
+				.card-label {
+					font-size: 1.1em;
+				}
+			}
+		}
+		.impact-box {
+			margin-top: 1em;
+			font-size: 2.4em;
+			font-weight: bold;
+			padding: 0.4em 1.3em;
+			border: #ffffff 2px solid;
+		}
+	}
+	.steps {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 8em;
+		h1 {
+			font-family: var(--font-montserrat);
+			font-size: 2em;
+			margin: 0;
+		}
+		p {
+			font-size: 1.3em;
+		}
+		.steps-cards {
+			display: flex;
+			margin-top: 3em;
+            margin-bottom: 6em;
+			gap: 2em;
+			.steps-card {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 0.2em;
+				border: #ffffff 2px solid;
+				border-radius: 2.4rem;
+				width: 17em;
+				height: 20em;
+				.card-image {
+                    height: 6em;
+                    width: 6em;
+                    background-color: red;
+                    margin-bottom: 1em;
+				}
+				.card-title {
+					font-size: 1.4em;
+                    font-weight: bold;
+				}
+				.card-desc {
+					font-size: 1.1em;
+                    text-align: center;
+                    margin: 0 1.4em;
+				}
+			}
+		}
+	}
+</style>
