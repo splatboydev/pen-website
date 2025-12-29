@@ -1,0 +1,61 @@
+---
+import { Font } from "astro:assets";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<Font cssVariable="--font-glacial" />
+		<Font cssVariable="--font-montserrat" />
+	</head>
+	<body>
+		<article>
+			<Nav />
+			<slot />
+		</article>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body {
+		font-family: var(--font-glacial);
+		background-color: #060d49;
+		background-image: radial-gradient(#001b3d, #060d49, #000000);
+		min-height: 100dvh;
+		color: #ffffff;
+		font-size: 1.1em;
+		margin: 0;
+	}
+	article {
+		padding: 1.4em 2.4em;
+	}
+</style>
+<style is:global>
+	a:hover {
+		text-decoration: underline;
+	}
+	:root {
+		line-height: 1.5;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	em {
+		font-style: unset;
+		background-image: linear-gradient(90deg, #477cdf, #58e2d4);
+		background-color: #477cdf;
+		color: transparent;
+		background-clip: text;
+		-webkit-background-clip: text;
+	}
+	p {
+		margin: 0;
+	}
+</style>

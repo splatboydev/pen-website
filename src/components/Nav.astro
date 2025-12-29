@@ -1,0 +1,71 @@
+---
+const links = [
+	{
+		name: "About",
+		href: "/about",
+	},
+	{
+		name: "Published Resources",
+		href: "/resources",
+	},
+	{
+		name: "Impact",
+		href: "/impact",
+	},
+	{
+		name: "Join & Apply",
+		href: "/apply",
+	},
+	{
+		name: "Team",
+		href: "/team",
+	},
+];
+---
+
+<nav>
+	<a href="/" class="icon">
+		<div class="image"></div>
+		<span>Pacific Education Network</span>
+	</a>
+	<div class="spacer"></div>
+	{links.map(x => <a class="page-link" href={x.href}>|{x.name}|</a>)}
+</nav>
+
+<style>
+	nav {
+		display: flex;
+		align-items: center;
+        gap: 0.6em;
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+    .page-link {
+        font-size: 0.9em;
+    }
+	.icon {
+		display: flex;
+		align-items: center;
+		gap: 0.8em;
+		.image {
+			aspect-ratio: 1 / 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+            /* temp */
+            background-color: #ffffff11;
+            border-radius: 50%;
+            width: 2.6em;
+            height: 2.6em;
+		}
+		span {
+			font-size: 1.4em;
+		}
+	}
+    .spacer {
+        flex-grow: 1;
+    }
+
+</style>
