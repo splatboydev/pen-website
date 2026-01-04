@@ -1,0 +1,156 @@
+---
+import Word from "../components/Word.astro";
+import Layout from "../layouts/Layout.astro";
+import Launch from "../assets/icons/launch.svg";
+
+const resources = [
+	{
+		url: "",
+		name: "Math AA HL",
+		image: "",
+	},
+	{
+		url: "",
+		name: "Chemistry SL",
+		image: "",
+	},
+	{
+		url: "",
+		name: "History HL: Causes of WWI",
+		image: "",
+	},
+	{
+		url: "",
+		name: "Pre-Calculus 11",
+		image: "",
+	},
+	{
+		url: "",
+		name: "Biology HL",
+		image: "",
+	},
+	{
+		url: "",
+		name: "History HL: Battles of WWI",
+		image: "",
+	},
+	{
+		url: "",
+		name: "How to Write an Academic Paper",
+		image: "",
+	},
+	{
+		url: "",
+		name: "Physics HL",
+		image: "",
+	},
+	{
+		url: "",
+		name: "CAS Guide",
+		image: "",
+	},
+];
+---
+
+<Layout>
+	<div class="title">
+		<Word><div class="smaller"><em>Pacific Education Network presents</em></div></Word>
+		<Word delay={1}>Free Study Guides</Word>
+	</div>
+	<p>
+		<Word delay={1.5} type="fade">
+			As advocates of the open education movement, we believe in transparency and accessibility of academic content.
+			<br />This very belief inspired us to create these study guides, which are continuously updated and improved upon, but most
+			importantly, free to use for all.
+		</Word>
+	</p>
+    <div class="rectangle" />
+	<div class="resource-grid">
+		{
+			resources.map((x, i) => (
+				<Word delay={i / 5 + 1} type="fade">
+					<div class="resource">
+						<div class="resource-image" />
+						<p class="resource-name">{x.name}</p>
+						<div class="open-in">{<Launch />}</div>
+					</div>
+				</Word>
+			))
+		}
+	</div>
+</Layout>
+
+<style>
+    .rectangle {
+        width: 44em;
+        height: 3em;
+        border-radius: 1em;
+        border: 0.15em solid #ffffff;
+        margin: 0 auto;
+        margin-top: 4em;
+    }
+	.title {
+		font-size: 4rem;
+		margin-top: 0.5em;
+		font-family: var(--font-montserrat);
+		text-align: center;
+		display: flex;
+		line-height: 1.2;
+		flex-direction: column;
+		.smaller {
+			font-size: 0.6em;
+		}
+	}
+	p {
+		text-align: center;
+		margin-top: 1em;
+	}
+	.resource-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 4em;
+		margin: 0 auto;
+		width: fit-content;
+		margin-top: 4em;
+	}
+	.resource {
+		aspect-ratio: 1;
+		font-family: var(--font-montserrat);
+		background-color: #ffffff;
+		border-radius: 1em;
+		width: 16em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.4em;
+		cursor: pointer;
+		position: relative;
+		&:hover {
+			box-shadow: 0 0 0.75em #ffffff;
+		}
+		.resource-name {
+			color: #000000;
+			font-size: 1.5em;
+		}
+		.resource-image {
+			height: 8em;
+            width: 8em;
+            background-color: #000000;
+		}
+		&:hover {
+			.open-in {
+				color: #000000;
+			}
+		}
+		.open-in {
+			position: absolute;
+			top: 0.25em;
+			right: 0.25em;
+			font-size: 2.25em;
+			line-height: 0;
+			color: transparent;
+			transition: color 0.15s ease-in-out;
+		}
+	}
+</style>

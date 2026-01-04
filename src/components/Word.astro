@@ -7,13 +7,12 @@ interface Props {
 const { delay, type } = Astro.props;
 ---
 
-<span class="word">
+<span class="word" style={type === "swipe" ? { overflow: "hidden" } : {}}>
 	<span class="inner" style={{ "--delay": delay, animationName: type }}><slot /></span>
 </span>
 
 <style>
 	.word {
-		overflow: hidden;
 		display: inline-block;
 	}
 	.inner {
