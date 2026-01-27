@@ -19,15 +19,15 @@ const { title } = Astro.props;
 			<Nav />
 			<slot />
 		</article>
-        <div class="separator" />
+		<div class="separator"></div>
 		<Footer />
 	</body>
 </html>
 
 <style>
-    .separator {
-        flex-grow: 1;
-    }
+	.separator {
+		flex-grow: 1;
+	}
 	body {
 		font-family: var(--font-glacial);
 		background-color: #060d49;
@@ -36,8 +36,8 @@ const { title } = Astro.props;
 		color: #ffffff;
 		font-size: 1.1em;
 		margin: 0;
-        display: flex;
-        flex-direction: column;
+		display: flex;
+		flex-direction: column;
 	}
 	article {
 		padding: 1.4em 2.4em;

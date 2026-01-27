@@ -4,7 +4,8 @@ interface Props {
     type?: "swipe" | "fade"
 }
 
-const { delay, type } = Astro.props;
+const type = Astro.props.type ?? "swipe";
+const delay = Astro.props.delay ?? 0;
 ---
 
 <span class="word" style={type === "swipe" ? { overflow: "hidden" } : {}}>

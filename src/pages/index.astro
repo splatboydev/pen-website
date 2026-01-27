@@ -19,7 +19,7 @@ import Layout from "../layouts/Layout.astro";
 		<div class="explore-cards">
 			<div class="explore-card">Tutoring</div>
 			<div class="explore-card">Study<br />Guides</div>
-			<div class="explore-card">Workshops</div>
+			<div class="explore-card">Sign Up</div>
 			<div class="explore-card">Socials</div>
 			<div class="explore-overlay">
 				<p class="explore-overlay-top">Explore</p>
@@ -28,23 +28,27 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 	</section>
 	<section class="impact">
-		<h1>Our impact, by stats</h1>
-		<p><em>Check out our progress in empowering students!</em></p>
+		<h1>Our <em>impact</em>, by numbers</h1>
+		<p>Check out our progress in empowering students!</p>
 		<div class="impact-cards">
 			<div class="impact-card">
-				<div class="card-value">9</div>
-				<div class="card-label">Student Materials Published</div>
+				<div class="card-value"><em>9</em></div>
+				<div class="card-label">Study Materials</div>
 			</div>
 			<div class="impact-card">
-				<div class="card-value">0</div>
+				<div class="card-value"><em>22</em></div>
+				<div class="card-label">Weekly Tutoring Sessions</div>
+			</div>
+			<div class="impact-card">
+				<div class="card-value"><em>300</em></div>
 				<div class="card-label">Users on Our Resources</div>
 			</div>
 			<div class="impact-card">
-				<div class="card-value">100+</div>
+				<div class="card-value"><em>400</em></div>
 				<div class="card-label">Hours Committed</div>
 			</div>
 		</div>
-		<div class="impact-box">With Students from 6 Schools Globally.</div>
+		<div class="impact-box">Serving students in 10 schools around the globe.</div>
 	</section>
 	<section class="steps">
 		<h1>How Pacific Education Network Tutoring Works</h1>
@@ -97,13 +101,12 @@ import Layout from "../layouts/Layout.astro";
 		.explore-card {
 			width: 7em;
 			height: 10em;
-			border: #ffffff 2px solid;
+			background-image: linear-gradient(#001f65, #6895fd);
 			border-radius: 0.4em;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			font-size: 2em;
-			font-weight: bold;
 			text-align: center;
 			margin-top: calc(var(--n) * 6rem);
 			&:nth-child(1) {
@@ -146,8 +149,9 @@ import Layout from "../layouts/Layout.astro";
 		align-items: center;
 		margin-top: 8em;
 		h1 {
-			font-family: var(--font-montserrat);
+			font-family: var(--font-glacial-indifference);
 			font-size: 3em;
+			font-weight: normal;
 			margin: 0;
 		}
 		p {
@@ -163,17 +167,7 @@ import Layout from "../layouts/Layout.astro";
 				align-items: center;
 				justify-content: center;
 				gap: 0.2em;
-				border: #ffffff 2px solid;
-				border-radius: 2.4rem;
-				width: 14em;
-				height: 9em;
 				line-height: 1.1;
-				&:nth-child(2) {
-					width: 18em;
-					.card-label {
-						font-size: 1.2em;
-					}
-				}
 				.card-value {
 					font-size: 4em;
 					font-weight: bold;
@@ -185,10 +179,8 @@ import Layout from "../layouts/Layout.astro";
 		}
 		.impact-box {
 			margin-top: 1em;
-			font-size: 2.4em;
-			font-weight: bold;
+			font-size: 1.4em;
 			padding: 0.4em 1.3em;
-			border: #ffffff 2px solid;
 		}
 	}
 	.steps {
@@ -215,8 +207,6 @@ import Layout from "../layouts/Layout.astro";
 				align-items: center;
 				justify-content: center;
 				gap: 0.2em;
-				border: #ffffff 2px solid;
-				border-radius: 2.4rem;
 				width: 17em;
 				height: 20em;
 				.card-image {

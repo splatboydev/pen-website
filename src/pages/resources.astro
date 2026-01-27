@@ -116,7 +116,7 @@ const resources = [
 	.resource {
 		aspect-ratio: 1;
 		font-family: var(--font-montserrat);
-		background-color: #ffffff;
+		border: #ffffff 0.1em solid;
 		border-radius: 1em;
 		width: 16em;
 		display: flex;
@@ -130,17 +130,16 @@ const resources = [
 			box-shadow: 0 0 0.75em #ffffff;
 		}
 		.resource-name {
-			color: #000000;
 			font-size: 1.5em;
 		}
 		.resource-image {
 			height: 8em;
             width: 8em;
-            background-color: #000000;
+            background-color: #ffffff;
 		}
 		&:hover {
 			.open-in {
-				color: #000000;
+				color: #ffffff;
 			}
 		}
 		.open-in {

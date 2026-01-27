@@ -5,15 +5,70 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
 	<div class="title">
-		<Word>About Pacific Education Network</Word>
+		<Word>About the <em>Network</em></Word>
 	</div>
+	<section class="main-content">
+		<section class="main-content-left">
+			<h1><em>Our society is:</em></h1>
+			<ul>
+				<li>Certified by the Government of British Columbia</li>
+				<li>Non-Profit</li>
+				<li>Based in Vancouver</li>
+				<li>By students, for students</li>
+				<li>Founded in 2024</li>
+			</ul>
+			<h1><em>Our Mission:</em></h1>
+			<p>To empower every student by providing resources, mentorship, support, and personalized tutoring.</p>
+			<h1><em>Our Vision:</em></h1>
+			<p>
+				We envision a future where each aspiring learning, no matter their school, interests, learning style, nor
+				income, can get the world-class academic support they need to succeed. As we grow, we plan to continue expanding
+				in more schools and in subjects, while keeping our services free and accessible.
+			 </p>
+		</section>
+		<section class="main-content-right">
+			<div class="image"></div>
+			<p class="image-title">Certificate of Change of Name with Business Number - Filed December 2025</p>
+		</section>
+	</section>
+	<section class="gallery-section">
+		<h1>Gallery <em>and</em> Testimonials</h1>
+		<p>Explore Pacific Education Network's <em>reviews</em> and <em>gallery</em> from our exciting events!</p>
+	</section>
 </Layout>
 
 <style>
+	.gallery-section {
+		text-align: center;
+		p {
+			margin: 0;
+		}
+		h1 {
+			margin: 0;
+			font-size: 3em;
+		}
+	}
+	h1 {
+		margin: 0.5em 0;
+	}
+	.main-content {
+		display: flex;
+		gap: 1em;
+	}
+	.main-content-right {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.image {
+			width: 30em;
+			height: 40em;
+			background-color: #ffffff;
+		}
+	}
 	.title {
 		font-size: 4rem;
 		margin-top: 0.5em;
 		font-family: var(--font-montserrat);
-        text-align: center;
+		text-align: center;
 	}
 </style>
