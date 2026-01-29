@@ -1,0 +1,137 @@
+---
+import Word from "../components/Word.astro";
+import Layout from "../layouts/Layout.astro";
+import Launch from "../assets/icons/launch.svg";
+---
+
+<Layout>
+	<h1 class="title">
+		<Word>Our <em>Impact</em></Word>
+	</h1>
+	<p class="subtitle">
+		<Word delay={1}
+			>The Pacific Education Network creates real and measureable impact through direct support of students, free resource
+			publication, and community fundraising.</Word
+		>
+	</p>
+	<section class="content-grid">
+		<div class="description">
+			<h2><em>Tutoring & Mentorship</em></h2>
+			<p>
+				We run tutoring sessions led by our student tutor team to help learners improve confidence, skills, and grades.
+				Sessions focus on clear explanations, study strategies, and consistent support, especially for students who
+				don’t have access to paid tutoring.
+			</p>
+			<a href="/apply" class="link-button">Join & Apply<Launch /></a>
+		</div>
+		<div class="icon-container">
+			<p>Over $73,000 CAD saved, compared to a rate of $50/ hour</p>
+			<div class="icon-image"></div>
+		</div>
+		<div class="icon-container">
+			<p>1-1 Tutor Sessions with over 20 students</p>
+			<div class="icon-image"></div>
+		</div>
+		<div class="description">
+			<h2><em>Published Resources</em></h2>
+			<p>
+				We publish free resources including notes, guides, practice questions, and study plans so students can learn on
+				their own time. These materials are designed to be simple, helpful, and easy to use.
+			</p>
+			<a href="/resources" class="link-button">Published Resources<Launch /></a>
+		</div>
+		<div class="icon-container">
+			<p>10 schools across 4 countries engaged</p>
+			<div class="icon-image"></div>
+		</div>
+		<div class="icon-container">
+			<p>9 Pieces of Study Material</p>
+			<div class="icon-image"></div>
+		</div>
+		<div class="description">
+			<h2><em>Fundraisers that give back</em></h2>
+			<p>
+				Our fundraisers help us continue what we do best. Every fundraiser increases our reach and spreads awareness,
+				and with the community's support, we impact more students, host more events, and maintain our devotion to 100%
+				free education. The message behind the public’s empowerment is simple: educational support should be free and
+				accessible to everyone.
+			</p>
+		</div>
+		<div class="large-image-container">
+			<div class="large-image"></div>
+			<p class="caption">Fundraiser event at Metrotown. 2025-01-02</p>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	h2 {
+		margin-top: 0;
+	}
+	.title {
+		font-size: 4rem;
+		margin-top: 0.5em;
+		margin-bottom: 0;
+		font-family: var(--font-montserrat);
+		text-align: center;
+	}
+	.subtitle {
+		margin: 0 auto;
+		text-align: center;
+		max-width: 50em;
+	}
+	.content-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr;
+		row-gap: 4em;
+		column-gap: 2em;
+		margin-top: 1em;
+		padding: 0 2em;
+	}
+	.icon-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		justify-content: space-between;
+		gap: 1em;
+		p {
+			margin: 0 auto;
+		}
+	}
+	.icon-image {
+		width: 10em;
+		height: 10em;
+		background-color: #ffffff;
+		border-radius: 50%;
+	}
+	.link-button {
+		background-color: #ffffff;
+		color: #000000;
+		padding: 0.5em 1em;
+		display: flex;
+		align-items: center;
+		border-radius: 0.5em;
+		width: fit-content;
+		text-decoration: none;
+		gap: 0.5em;
+		font-weight: bold;
+		margin: 1em 0;
+	}
+	.large-image-container {
+		grid-column: span 2;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.large-image {
+		width: 24em;
+		height: 16em;
+		background-color: #ffffff;
+	}
+	.caption {
+		font-style: italic;
+		font-size: 0.95em;
+	}
+</style>

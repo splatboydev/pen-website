@@ -24,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
 				We envision a future where each aspiring learning, no matter their school, interests, learning style, nor
 				income, can get the world-class academic support they need to succeed. As we grow, we plan to continue expanding
 				in more schools and in subjects, while keeping our services free and accessible.
-			 </p>
+			</p>
 		</section>
 		<section class="main-content-right">
 			<div class="image"></div>
@@ -34,10 +34,42 @@ import Layout from "../layouts/Layout.astro";
 	<section class="gallery-section">
 		<h1>Gallery <em>and</em> Testimonials</h1>
 		<p>Explore Pacific Education Network's <em>reviews</em> and <em>gallery</em> from our exciting events!</p>
+		<div class="gallery">
+			<div class="gallery-entry">
+				<div class="gallery-image"></div>
+				<p>
+					“My son really likes Mike. He’s <em>knowledge and very patient</em>, and his pronunciation sounds really
+					nice.”
+				</p>
+			</div>
+			<div class="gallery-entry">
+				<div class="gallery-image"></div>
+				<p>
+					“I think the teacher is <em>very responsible and has a lot of teaching experience</em>! My child usually doesn’t
+					respond much to questions, but this time he responded actively and even asked questions. <em>Very</em> good!”
+				</p>
+			</div>
+			<div class="gallery-entry">
+				<div class="gallery-image"></div>
+			</div>
+			<div class="gallery-entry">
+				<p>“The teacher explains so well – better than our English teacher <em>by 10 fold</em>.”</p>
+				<div class="gallery-image"></div>
+			</div>
+		</div>
+	</section>
+	<section class="bottom">
+		<span class="big">“This guy’s <em>goated”</em></span> sums up our tutoring services quite well.
 	</section>
 </Layout>
 
 <style>
+	.bottom {
+		text-align: center;
+	}
+	.big {
+		font-size: 5em;
+	}
 	.gallery-section {
 		text-align: center;
 		p {
@@ -47,6 +79,25 @@ import Layout from "../layouts/Layout.astro";
 			margin: 0;
 			font-size: 3em;
 		}
+	}
+	.gallery {
+		display: grid;
+		padding: 0 2em;
+		grid-template-columns: 1fr 1fr;
+		gap: 1em;
+		margin-top: 1em;
+
+	}
+	.gallery-entry {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		gap: 0.5em;
+	}
+	.gallery-image {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		background-color: #ffffff;
 	}
 	h1 {
 		margin: 0.5em 0;
