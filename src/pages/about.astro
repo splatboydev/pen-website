@@ -1,6 +1,11 @@
 ---
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import testimony1 from "../assets/img/about/testimony1.jpg";
+import testimony2 from "../assets/img/about/testimony2.jpg";
+import testimony3 from "../assets/img/about/testimony3.jpg";
+import testimony4 from "../assets/img/about/testimony4.jpg";
 ---
 
 <Layout>
@@ -36,25 +41,36 @@ import Layout from "../layouts/Layout.astro";
 		<p>Explore Pacific Education Network's <em>reviews</em> and <em>gallery</em> from our exciting events!</p>
 		<div class="gallery">
 			<div class="gallery-entry">
-				<div class="gallery-image"></div>
+				<div class="gallery-image">
+					<Image src={testimony1} alt="TODO" />
+				</div>
 				<p>
 					“My son really likes Mike. He’s <em>knowledge and very patient</em>, and his pronunciation sounds really
 					nice.”
 				</p>
 			</div>
 			<div class="gallery-entry">
-				<div class="gallery-image"></div>
+				<div class="gallery-image">
+					<Image src={testimony2} alt="TODO" />
+				</div>
 				<p>
-					“I think the teacher is <em>very responsible and has a lot of teaching experience</em>! My child usually doesn’t
-					respond much to questions, but this time he responded actively and even asked questions. <em>Very</em> good!”
+					“I think the teacher is <em>very responsible and has a lot of teaching experience</em>! My child usually
+					doesn’t respond much to questions, but this time he responded actively and even asked questions. <em
+						>Very</em
+					> good!”
 				</p>
 			</div>
 			<div class="gallery-entry">
-				<div class="gallery-image"></div>
+				<div class="gallery-image">
+					<Image src={testimony3} alt="TODO" />
+				</div>
 			</div>
 			<div class="gallery-entry">
+				<div class="spacer" />
 				<p>“The teacher explains so well – better than our English teacher <em>by 10 fold</em>.”</p>
-				<div class="gallery-image"></div>
+				<div class="gallery-image">
+					<Image src={testimony4} alt="TODO" />
+				</div>
 			</div>
 		</div>
 	</section>
@@ -64,6 +80,9 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+	.spacer {
+		flex-grow: 1;
+	}
 	.bottom {
 		text-align: center;
 	}
@@ -86,7 +105,6 @@ import Layout from "../layouts/Layout.astro";
 		grid-template-columns: 1fr 1fr;
 		gap: 1em;
 		margin-top: 1em;
-
 	}
 	.gallery-entry {
 		display: flex;
@@ -96,8 +114,10 @@ import Layout from "../layouts/Layout.astro";
 	}
 	.gallery-image {
 		width: 100%;
-		aspect-ratio: 16 / 9;
-		background-color: #ffffff;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	h1 {
 		margin: 0.5em 0;
