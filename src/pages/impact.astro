@@ -1,7 +1,10 @@
 ---
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
-import Launch from "../assets/icons/launch.svg";
+import Launch from "../assets/icons/launch.svg"
+import { Image } from "astro:assets";
+import fundraiser from "../assets/img/impact/fundraiser.jpg";
+import LinkButton from "../components/LinkButton.astro";
 ---
 
 <Layout>
@@ -22,7 +25,7 @@ import Launch from "../assets/icons/launch.svg";
 				Sessions focus on clear explanations, study strategies, and consistent support, especially for students who
 				don’t have access to paid tutoring.
 			</p>
-			<a href="/apply" class="link-button">Join & Apply<Launch /></a>
+			<LinkButton href="/apply">Join & Apply</LinkButton>
 		</div>
 		<div class="icon-container">
 			<p>Over $73,000 CAD saved, compared to a rate of $50/ hour</p>
@@ -38,7 +41,7 @@ import Launch from "../assets/icons/launch.svg";
 				We publish free resources including notes, guides, practice questions, and study plans so students can learn on
 				their own time. These materials are designed to be simple, helpful, and easy to use.
 			</p>
-			<a href="/resources" class="link-button">Published Resources<Launch /></a>
+			<LinkButton href="/resources">Published Resources</LinkButton>
 		</div>
 		<div class="icon-container">
 			<p>10 schools across 4 countries engaged</p>
@@ -58,7 +61,9 @@ import Launch from "../assets/icons/launch.svg";
 			</p>
 		</div>
 		<div class="large-image-container">
-			<div class="large-image"></div>
+			<div class="large-image">
+				<Image src={fundraiser} alt="Funderaiser event at Metrotown" />
+			</div>
 			<p class="caption">Fundraiser event at Metrotown. 2025-01-02</p>
 		</div>
 	</section>
@@ -105,19 +110,6 @@ import Launch from "../assets/icons/launch.svg";
 		background-color: #ffffff;
 		border-radius: 50%;
 	}
-	.link-button {
-		background-color: #ffffff;
-		color: #000000;
-		padding: 0.5em 1em;
-		display: flex;
-		align-items: center;
-		border-radius: 0.5em;
-		width: fit-content;
-		text-decoration: none;
-		gap: 0.5em;
-		font-weight: bold;
-		margin: 1em 0;
-	}
 	.large-image-container {
 		grid-column: span 2;
 		text-align: center;
@@ -127,8 +119,10 @@ import Launch from "../assets/icons/launch.svg";
 	}
 	.large-image {
 		width: 24em;
-		height: 16em;
-		background-color: #ffffff;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	.caption {
 		font-style: italic;

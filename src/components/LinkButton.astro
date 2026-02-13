@@ -1,0 +1,30 @@
+---
+import Launch from "../assets/icons/launch.svg";
+
+interface Props {
+	href: string;
+}
+
+const href = Astro.props.href;
+---
+
+<a href={href}>
+	<slot /><Launch />
+</a>
+
+<style>
+	a {
+		font-family: var(--font-montserrat);
+		background-color: #ffffff;
+		color: #000000;
+		padding: 0.5em 1em;
+		display: flex;
+		align-items: center;
+		border-radius: 0.5em;
+		width: fit-content;
+		text-decoration: none;
+		gap: 0.5em;
+		font-weight: bold;
+		margin: 1em 0;
+	}
+</style>

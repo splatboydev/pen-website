@@ -1,0 +1,72 @@
+---
+import Word from "../components/Word.astro";
+import Layout from "../layouts/Layout.astro";
+import Launch from "../assets/icons/launch.svg";
+import LinkButton from "../components/LinkButton.astro";
+---
+
+<Layout>
+	<div class="title">
+		<h1><Word><em>Want to have a part?</em></Word></h1>
+	</div>
+	<p class="subtitle">
+		Whether you are an experienced tutor or a student who would benefit from extra support, we have resources here for you
+		to unlock your full abilities!
+	</p>
+	<section>
+		<div class="text-content">
+			<h2>Feel the need of a guide?</h2>
+			<p>
+				You don’t have to learn alone! Connect with caring, qualified, and passionate tutors who are ready to support
+				you at your pace and help you reach your goals.
+			</p>
+			<LinkButton href="/todo">Find a Tutor!</LinkButton>
+		</div>
+		<div class="image"></div>
+	</section>
+	<section>
+		<div class="image"></div>
+		<div class="text-content">
+			<h2>Ready to demonstrate your abilities?</h2>
+			<p>
+				Share your knowledge. Shape a future. Make a difference. Join the Pacific Network Education as a tutor and help
+				students learn, grow, and succeed, one session at a time. Flexible times and low workload!
+			</p>
+			<LinkButton href="/todo"> Sign Up to Teach</LinkButton>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.title {
+		font-size: 2rem;
+		margin-top: 0.5em;
+		font-family: var(--font-montserrat);
+		text-align: center;
+		h1 {
+			margin: 0;
+		}
+	}
+	h2 {
+		font-family: var(--font-montserrat);
+		margin: 0;
+		margin-bottom: 0.25em;
+	}
+	.subtitle {
+		text-align: center;
+		max-width: 50em;
+		margin: 0 auto;
+	}
+	section {
+		display: flex;
+		justify-content: space-between;
+		gap: 3em;
+		margin: 4em 0;
+	}
+	.image {
+		width: 16em;
+		height: 16em;
+		background: white;
+		flex-shrink: 0;
+	}
+</style>

@@ -9,17 +9,19 @@ export default defineConfig({
 			{
 				name: "Glacial Indifference",
 				cssVariable: "--font-glacial",
-				provider: "local",
-				variants: [
-					{
-						src: ["./src/assets/fonts/GlacialIndifference-Regular.otf"],
-						weight: 400,
-					},
-					{
-						src: ["./src/assets/fonts/GlacialIndifference-Bold.otf"],
-						weight: 700,
-					},
-				],
+				provider: fontProviders.local(),
+				options: {
+					variants: [
+						{
+							src: ["./src/assets/fonts/GlacialIndifference-Regular.otf"],
+							weight: 400,
+						},
+						{
+							src: ["./src/assets/fonts/GlacialIndifference-Bold.otf"],
+							weight: 700,
+						},
+					],
+				},
 			},
 			{
 				name: "Montserrat",
