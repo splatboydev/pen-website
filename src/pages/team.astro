@@ -2,39 +2,40 @@
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
 import Launch from "../assets/icons/launch.svg";
-
+import { Image } from "astro:assets";
 const boardTop = [
 	{
 		name: "Yicheng Yang",
 		title: "Founder & President",
-		image: "TODO",
+		image: "Yicheng Yang Exec.png",
 	},
 	{
 		name: "Yiyi Yang",
 		title: "Vice-President",
-		image: "TODO",
+		image: "Yiyi Yang Exec Photo.JPG",
 	},
 ];
+
 const board = [
 	{
 		name: "Ayden Leung",
 		title: "Design Manager",
-		image: "TODO",
+		image: "Ayden Leung Exec.png",
 	},
 	{
 		name: "Alisa Du",
 		title: "Social Media Manager",
-		image: "TODO",
+		image: "Alisa Du Exec.jpeg",
 	},
 	{
 		name: "Ben Fung",
 		title: "Head Tutor",
-		image: "TODO",
+		image: "Ben Fung Exec.jpg",
 	},
 	{
 		name: "Jane Wang",
 		title: "Operations Manager",
-		image: "TODO",
+		image: "Jane Wang Exec Photo.jpeg",
 	},
 ];
 
@@ -42,89 +43,93 @@ const tutors = [
 	{
 		name: "Emad Badei",
 		title: "Biology Tutor",
-		image: "TODO",
+		image: "Emad Badei Tutor.jpeg",
 	},
 	{
 		name: "James Lin",
 		title: "English Tutor",
-		image: "TODO",
+		image: "James Lin Tutor.JPG",
 	},
 	{
 		name: "Hyobeen Ahn",
 		title: "Math Tutor",
-		image: "TODO",
+		image: "Hyobeen Ahn Tutor.jpg",
 	},
 	{
 		name: "Matt Chong",
 		title: "Physics Tutor",
-		image: "TODO",
+		image: "Matt Chong Tutor.jpg",
 	},
 	{
 		name: "Gillian Xie",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Gillian Xie Tutor.jpeg",
 	},
 	{
 		name: "Emma Jia",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Emma Jia Tutor.jpeg",
 	},
 	{
 		name: "Ayesha Klair",
 		title: "Biology Tutor",
-		image: "TODO",
+		image: "Ayesha Klair Tutor.jpeg",
 	},
 	{
 		name: "Darius Gao",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Darius Gao Tutor.jpeg",
 	},
 	{
 		name: "Anushka Mukherjee",
 		title: "Math/ English Tutor",
-		image: "TODO",
+		image: "Anushka Mukherjee Tutor.jpeg",
 	},
 	{
 		name: "Amir Shekari",
 		title: "Math Tutor",
-		image: "TODO",
+		image: "Amir Shekari Tutor.jpeg",
 	},
 	{
 		name: "Mike Zhang",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Mike Zhang Tutor.jpeg",
 	},
 	{
 		name: "Lucy Dong",
 		title: "Math Tutor",
-		image: "TODO",
+		image: "Lucy Dong.jpeg",
 	},
 	{
 		name: "Anna Yang",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Anna Yang Tutoring Photo.jpeg",
 	},
 	{
 		name: "Amber Zhang",
 		title: "Math Tutor",
-		image: "TODO",
+		image: "Amber Zhang Tutoring Photo.jpeg",
 	},
 	{
 		name: "Iny Yu",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Iny Yu Tutor.jpeg",
 	},
 	{
 		name: "Amy Lu",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Amy Lu Tutor.png",
 	},
 	{
 		name: "Chloe Fu",
 		title: "English Tutor",
-		image: "TODO",
+		image: "Chloe Fu Tutor.jpg",
 	},
 ];
+
+const images = import.meta.glob<{ default: ImageMetadata }>("../assets/img/team/*", { eager: true });
+
+const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 ---
 
 <Layout>
@@ -137,7 +142,7 @@ const tutors = [
 			</p></Word
 		>
 	</div>
-	<div class="spacer" />
+	<div class="spacer"></div>
 	<section class="name-section">
 		<h2>Executive Board</h2>
 		<p>
@@ -150,7 +155,7 @@ const tutors = [
 				boardTop.map(x => (
 					<div class="grid-item board-top-item">
 						<div class="portrait-image">
-							<img src={x.image} />
+							<Image src={imageFor(x.image)} alt={x.name} inferSize />
 						</div>
 						<h3 class="name">{x.name}</h3>
 						<p class="title">{x.title}</p>
@@ -163,7 +168,7 @@ const tutors = [
 				board.map(x => (
 					<div class="grid-item board-item">
 						<div class="portrait-image">
-							<img src={x.image} />
+							<Image src={imageFor(x.image)} alt={x.name} inferSize />
 						</div>
 						<h3 class="name">{x.name}</h3>
 						<p class="title">{x.title}</p>
@@ -172,7 +177,7 @@ const tutors = [
 			}
 		</div>
 	</section>
-	<div class="spacer" />
+	<div class="spacer"></div>
 	<section class="name-section">
 		<h2>Tutors</h2>
 		<p>
@@ -186,7 +191,7 @@ const tutors = [
 				tutors.map(x => (
 					<div class="grid-item tutor-item">
 						<div class="portrait-image">
-							<img src={x.image} />
+							<Image src={imageFor(x.image)} alt={x.name} inferSize />
 						</div>
 						<h3 class="name">{x.name}</h3>
 						<p class="title">{x.title}</p>
@@ -258,8 +263,12 @@ const tutors = [
 				border-radius: 0.8em;
 				margin-bottom: 0.5em;
 				img {
+					display: block;
 					width: 100%;
 					height: 100%;
+					border-radius: 0.8em;
+					object-fit: cover;
+					object-position: center center;
 				}
 			}
 			.name {
