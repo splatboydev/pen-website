@@ -20,13 +20,13 @@
 <style>
     .contact {
         text-align: right;
-        font-size: 1.2em;
+        font-size: var(--step-0);
     }
 	.pen {
 		font-style: italic;
 		display: flex;
 		flex-direction: column;
-		gap: 0.3em;
+		gap: var(--space-3xs);
         .image {
 			width: 2em;
 			height: 2em;
@@ -37,7 +37,7 @@
 			color: #969696;
 			display: flex;
 			align-items: center;
-			gap: 0.3em;
+			gap: var(--space-3xs);
 		}
 	}
 	footer {
@@ -46,20 +46,18 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 1em;
+		padding: var(--space-s);
 	}
 	article {
 		display: flex;
-		width: 100%;
+		width: 80vw;
 		justify-content: space-between;
-		max-width: 60em;
 		padding-bottom: 2em;
 	}
 	.bottom {
-		width: 100%;
 		display: flex;
 		justify-content: space-between;
-		max-width: 60em;
+		width: 80vw;
 		border-top: 2px solid #545454;
 		padding-top: 1em;
 	}

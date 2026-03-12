@@ -7,7 +7,7 @@ import fundraiser from "../assets/img/impact/fundraiser.jpg";
 import LinkButton from "../components/LinkButton.astro";
 ---
 
-<Layout>
+<Layout title="PEN | Impact">
 	<h1 class="title">
 		<Word>Our <em>Impact</em></Word>
 	</h1>
@@ -29,7 +29,7 @@ import LinkButton from "../components/LinkButton.astro";
 		</div>
 		<div class="icon-container">
 			<p>Over $73,000 CAD saved, compared to a rate of $50/ hour</p>
-			<div class="icon-image"></div>
+			<div class="icon-image blue"></div>
 		</div>
 		<div class="icon-container">
 			<p>1-1 Tutor Sessions with over 20 students</p>
@@ -45,11 +45,11 @@ import LinkButton from "../components/LinkButton.astro";
 		</div>
 		<div class="icon-container">
 			<p>10 schools across 4 countries engaged</p>
-			<div class="icon-image"></div>
+			<div class="icon-image "></div>
 		</div>
 		<div class="icon-container">
 			<p>9 Pieces of Study Material</p>
-			<div class="icon-image"></div>
+			<div class="icon-image blue"></div>
 		</div>
 		<div class="description">
 			<h2><em>Fundraisers that give back</em></h2>
@@ -107,8 +107,11 @@ import LinkButton from "../components/LinkButton.astro";
 	.icon-image {
 		width: 10em;
 		height: 10em;
-		background-color: #ffffff;
+		background-color: rgb(26, 104, 239);
 		border-radius: 50%;
+	}
+	.blue {
+		background-color: cornflowerblue;
 	}
 	.large-image-container {
 		grid-column: span 2;

@@ -6,9 +6,10 @@ import testimony1 from "../assets/img/about/testimony1.jpg";
 import testimony2 from "../assets/img/about/testimony2.jpg";
 import testimony3 from "../assets/img/about/testimony3.jpg";
 import testimony4 from "../assets/img/about/testimony4.jpg";
+import renaming from "../assets/img/about/renaming.png";
 ---
 
-<Layout>
+<Layout title="PEN | About">
 	<div class="title">
 		<Word>About the <em>Network</em></Word>
 	</div>
@@ -32,7 +33,9 @@ import testimony4 from "../assets/img/about/testimony4.jpg";
 			</p>
 		</section>
 		<section class="main-content-right">
-			<div class="image"></div>
+			<div class="image">
+				<Image src={renaming} style={"width: 100%; height: 100%;"} alt="TODO" />
+			</div>
 			<p class="image-title">Certificate of Change of Name with Business Number - Filed December 2025</p>
 		</section>
 	</section>
@@ -87,7 +90,7 @@ import testimony4 from "../assets/img/about/testimony4.jpg";
 		text-align: center;
 	}
 	.big {
-		font-size: 5em;
+		font-size: calc(var(--step-5) * 1.5);
 	}
 	.gallery-section {
 		text-align: center;
@@ -96,49 +99,49 @@ import testimony4 from "../assets/img/about/testimony4.jpg";
 		}
 		h1 {
 			margin: 0;
-			font-size: 3em;
+			font-size: var(--step-5);
 		}
 	}
 	.gallery {
 		display: grid;
-		padding: 0 2em;
+		padding: 0 var(--space-m);
 		grid-template-columns: 1fr 1fr;
-		gap: 1em;
-		margin-top: 1em;
+		gap: var(--space-xs);
+		margin-top: var(--space-xs);
 	}
 	.gallery-entry {
 		display: flex;
 		flex-direction: column;
 		text-align: left;
-		gap: 0.5em;
+		gap: var(--space-2xs);
 	}
 	.gallery-image {
-		width: 100%;
+		width: var(--space-xxl);
 		img {
-			width: 100%;
+			width: var(--space-xxl);
 			height: auto;
 		}
 	}
 	h1 {
-		margin: 0.5em 0;
+		margin: var(--step--2) 0;
 	}
 	.main-content {
 		display: flex;
-		gap: 1em;
+		gap: var(--space-xs);
 	}
 	.main-content-right {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		.image {
-			width: 30em;
-			height: 40em;
+			width: calc(var(--space-l) * 12);
+			height: calc(var(--space-xl) * 12);
 			background-color: #ffffff;
 		}
 	}
 	.title {
-		font-size: 4rem;
-		margin-top: 0.5em;
+		font-size: var(--step-5);
+		margin-top: var(--space-2xs);
 		font-family: var(--font-montserrat);
 		text-align: center;
 	}

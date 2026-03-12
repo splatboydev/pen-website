@@ -132,7 +132,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("../assets/img/team/
 const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 ---
 
-<Layout>
+<Layout title = "PEN | Team">
 	<div class="title">
 		<Word><h1>Meet Our <em>Dedicated</em> Team</h1></Word>
 		<Word delay={1}

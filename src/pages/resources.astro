@@ -2,62 +2,67 @@
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
 import Launch from "../assets/icons/launch.svg";
+import { Image } from "astro:assets";
+
+const icons = import.meta.glob<{ default: ImageMetadata }>("../assets/icons/resources/*", { eager: true });
+
+const imageFor = (name: string) => icons[`../assets/icons/resources/${name}.svg`].default;
 
 const resources = [
 	{
-		url: "",
-		name: "Math AA HL",
-		image: "",
-	},
-	{
-		url: "",
-		name: "Chemistry SL",
-		image: "",
-	},
-	{
-		url: "",
-		name: "History HL: Causes of WWI",
-		image: "",
-	},
-	{
-		url: "",
+		url: "https://dub.sh/Sc8uNxn",
 		name: "Pre-Calculus 11",
-		image: "",
+		image: imageFor("protractor"),
 	},
 	{
-		url: "",
-		name: "Biology HL",
-		image: "",
+		url: "https://ggl.link/x5gT7uG",
+		name: "Math AA HL",
+		image: imageFor("protractor"),
 	},
 	{
-		url: "",
-		name: "History HL: Battles of WWI",
-		image: "",
-	},
-	{
-		url: "",
-		name: "How to Write an Academic Paper",
-		image: "",
-	},
-	{
-		url: "",
+		url: "https://ggl.link/a9nwDzL",
 		name: "Physics HL",
-		image: "",
+		image: imageFor("protractor"),
 	},
 	{
-		url: "",
+		url: "https://ggl.link/N1CUTqo",
+		name: "Chemistry SL",
+		image: imageFor("chem"),
+	},
+	{
+		url: "https://ggl.link/4D8sMJo",
+		name: "History HL: Causes of WWI",
+		image: imageFor("book"),
+	},
+	{
+		url: "https://ggl.link/RNFJ0TS",
+		name: "History HL: Battles of WWI",
+		image: imageFor("book"),
+	},
+	{
+		url: "https://ggl.link/eVqWLz6",
+		name: "How to Write an Academic Paper",
+		image: imageFor("paper"),
+	},
+	{
+		url: "https://ggl.link/lxfZK77",
+		name: "Economics Guide",
+		image: imageFor("paper"),
+	},
+	{
+		url: "https://ggl.link/WktI3wt",
 		name: "CAS Guide",
-		image: "",
+		image: imageFor("paper"),
 	},
 ];
 ---
 
-<Layout>
+<Layout title="PEN | Resources">
 	<div class="title">
 		<Word><div class="smaller"><em>Pacific Education Network presents</em></div></Word>
 		<Word delay={1}>Free Study Guides</Word>
 	</div>
-	<p>
+	<p class="subtext">
 		<Word delay={1.5} type="fade">
 			As advocates of the open education movement, we believe in transparency and accessibility of academic content.
 			<br />This very belief inspired us to create these study guides, which are continuously updated and improved upon, but most
@@ -65,77 +70,99 @@ const resources = [
 		</Word>
 	</p>
     <div class="rectangle" />
-	<div class="resource-grid">
-		{
-			resources.map((x, i) => (
-				<Word delay={i / 5 + 1} type="fade">
-					<div class="resource">
-						<div class="resource-image" />
-						<p class="resource-name">{x.name}</p>
-						<div class="open-in">{<Launch />}</div>
-					</div>
-				</Word>
-			))
-		}
+	<div style="display: flex; align-items: center;">
+		<div class="resource-grid">
+				{
+					resources.map((x, i) => (
+						<Word delay={i / 5 + 1} type="fade">
+							<a 
+							href={x.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="resource-link"
+							>
+								<div class="resource" >
+									<Image loading={i > 5 ? "lazy" : "eager"} class="resource-image" src={x.image} alt=""/>
+									<p class="resource-name">{x.name}</p>
+									<div class="open-in">{<Launch />}</div>
+								</div>
+							</a>
+						</Word>
+					))
+				}
+			</div>
 	</div>
 </Layout>
 
 <style>
     .rectangle {
-        width: 44em;
-        height: 3em;
-        border-radius: 1em;
-        border: 0.15em solid #ffffff;
+        width: clamp(1.875rem, -1.9602rem + 17.0455vw, 11.25rem);
+        height: var(--space-2xs);
+        border-radius: var(--space-xs);
+        border: var(--space-3xs) solid #ffffff;
         margin: 0 auto;
-        margin-top: 4em;
+        margin-top: var(--space-xl);
     }
 	.title {
-		font-size: 4rem;
-		margin-top: 0.5em;
+		font-size: var(--step-5);
+		margin-top: var(--space-2xs);
 		font-family: var(--font-montserrat);
 		text-align: center;
 		display: flex;
 		line-height: 1.2;
 		flex-direction: column;
 		.smaller {
-			font-size: 0.6em;
+			font-size: var(--step-1);
 		}
 	}
-	p {
+	.subtext {
+		width: clamp(9.375rem, -2.1307rem + 51.1364vw, 40rem);
 		text-align: center;
-		margin-top: 1em;
+		margin: var(--space-2xs) auto;
+		box-sizing: border-box;
+		font-size: clamp(0.75rem, 0.4614rem + 1.4208vw, 1.5625rem);
+	}
+	p {
+		font-size: var(--step--2);
 	}
 	.resource-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		gap: 4em;
+		gap: var(--grid-gutter);
 		margin: 0 auto;
 		width: fit-content;
-		margin-top: 4em;
+		margin-top: var(--space-xl);
+	}
+
+	@media screen and (max-width: 900px) {
+		.resource-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 	.resource {
+		transition: all 0.3s ease-in-out;
 		aspect-ratio: 1;
 		font-family: var(--font-montserrat);
 		border: #ffffff 0.1em solid;
 		border-radius: 1em;
-		width: 16em;
+		width: clamp(9.375rem, 5.0284rem + 19.3182vw, 20rem);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1.4em;
+		padding: var(--space-l);
 		cursor: pointer;
 		position: relative;
 		&:hover {
-			box-shadow: 0 0 0.75em #ffffff;
+			box-shadow: 0 0 var(--step--2) #ffffff;
+			transform: translateY(calc(var(--step--2) * -0.8));
 		}
 		.resource-name {
-			font-size: 1.5em;
+			font-size: var(--step-1);
 		}
 		.resource-image {
-			height: 8em;
-            width: 8em;
-            background-color: #ffffff;
+			height: var(--space-3xl);
+            width: var(--space-3xl);
 		}
 		&:hover {
 			.open-in {
@@ -144,12 +171,16 @@ const resources = [
 		}
 		.open-in {
 			position: absolute;
-			top: 0.25em;
-			right: 0.25em;
-			font-size: 2.25em;
+			top: var(--space-3xs);
+			right: var(--space-3xs);
+			font-size: var(--step-3);
 			line-height: 0;
 			color: transparent;
 			transition: color 0.15s ease-in-out;
 		}
+	}
+
+	.resource-link {
+    	all: unset;
 	}
 </style>
