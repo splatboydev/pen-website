@@ -1,10 +1,13 @@
 ---
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
-import Launch from "../assets/icons/launch.svg"
 import { Picture } from "astro:assets";
 import fundraiser from "../assets/img/impact/fundraiser.jpg";
 import LinkButton from "../components/LinkButton.astro";
+import { Image } from 'astro:assets';
+
+const icons = import.meta.glob<{default: ImageMetadata}>('../assets/icons/resources/*.svg', { eager: true });
+const imageFor = (name: string) => icons[`../assets/icons/resources/${name}-light.svg`].default;
 ---
 
 <Layout title="PEN | Impact">
@@ -28,12 +31,12 @@ import LinkButton from "../components/LinkButton.astro";
 			<LinkButton href="/apply">Join & Apply</LinkButton>
 		</div>
 		<div class="icon-container">
-			<p>Over $73,000 CAD saved, compared to a rate of $50/ hour</p>
-			<div class="icon-image blue"></div>
+			<p>Over $500,000 CAD saved, compared to a rate of $50/hour</p>
+			<Image src={imageFor("money-wavy")} fit="contain" alt="" class="icon-image blue" />
 		</div>
 		<div class="icon-container">
 			<p>1-1 Tutor Sessions with over 20 students</p>
-			<div class="icon-image"></div>
+			<Image src={imageFor("student")} alt="" class="icon-image" />
 		</div>
 		<div class="description">
 			<h2><em>Published Resources</em></h2>
@@ -45,11 +48,11 @@ import LinkButton from "../components/LinkButton.astro";
 		</div>
 		<div class="icon-container">
 			<p>10 schools across 4 countries engaged</p>
-			<div class="icon-image "></div>
+			<Image src={imageFor("globe")} alt=""  class="icon-image" />
 		</div>
 		<div class="icon-container">
 			<p>9 Pieces of Study Material</p>
-			<div class="icon-image blue"></div>
+			<Image src={imageFor("books")} alt="" class="icon-image blue" />
 		</div>
 		<div class="description">
 			<h2><em>Fundraisers that give back</em></h2>
@@ -90,8 +93,9 @@ import LinkButton from "../components/LinkButton.astro";
 		grid-template-columns: 2fr 1fr 1fr;
 		row-gap: 4em;
 		column-gap: 2em;
-		margin-top: 1em;
+		margin: 3em auto 0;
 		padding: 0 2em;
+		max-width: 70rem;
 	}
 	.icon-container {
 		display: flex;
@@ -109,6 +113,8 @@ import LinkButton from "../components/LinkButton.astro";
 		height: 10em;
 		background-color: rgb(26, 104, 239);
 		border-radius: 50%;
+		object-fit: contain;
+		filter: invert(1) hue-rotate(180deg);
 	}
 	.blue {
 		background-color: cornflowerblue;
@@ -130,5 +136,28 @@ import LinkButton from "../components/LinkButton.astro";
 	.caption {
 		font-style: italic;
 		font-size: 0.95em;
+	}
+
+	@media (max-width: 768px) {
+		.content-grid {
+			grid-template-columns: 1fr;
+			padding: 0;
+		}
+		.icon-container {
+			flex-direction: row;
+			text-align: left;
+			align-items: center;
+		}
+		.icon-image {
+			width: 4em;
+			height: 4em;
+			flex-shrink: 0;
+		}
+		.large-image-container {
+			grid-column: span 1;
+		}
+		.large-image {
+			width: 100%;
+		}
 	}
 </style>

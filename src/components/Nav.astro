@@ -1,72 +1,155 @@
 ---
 const links = [
-	{
-		name: "About",
-		href: "/about",
-	},
-	{
-		name: "Resources",
-		href: "/resources",
-	},
-	{
-		name: "Impact",
-		href: "/impact",
-	},
-	{
-		name: "Apply",
-		href: "/apply",
-	},
-	{
-		name: "Team",
-		href: "/team",
-	},
+    { name: "About", href: "/about" },
+    { name: "Resources", href: "/resources" },
+    { name: "Impact", href: "/impact" },
+    { name: "Apply", href: "/apply" },
+    { name: "Team", href: "/team" },
 ];
 ---
-
 <nav>
-	<a href="/" class="icon">
-		<div class="image"></div>
-		<span>Pacific Education Network</span>
-	</a>
-	<div class="spacer"></div>
-	{links.map(x => <a class="page-link" href={x.href}>|{x.name}|</a>)}
+    <a href="/" class="icon">
+        <div class="image"></div>
+        <span>Pacific Education Network</span>
+    </a>
+    <div class="spacer"></div>
+    <div class="links">
+		<button class="close" aria-label="Close menu">✕</button>
+		{links.map(x => <a class="page-link" href={x.href}>|{x.name}|</a>)}
+	</div>
+    <button class="hamburger" aria-label="Toggle menu" style="width:20px;padding:2px;">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>
 
+<script>
+    const nav = document.querySelector('nav');
+    const btn = document.querySelector('.hamburger');
+    btn?.addEventListener('click', () => nav?.classList.toggle('open'));
+	document.querySelector('.close')?.addEventListener('click', () => nav?.classList.remove('open'));
+</script>
+<style is:global>
+    nav.open .links {
+        display: flex !important;
+    }
+</style>
 <style>
-	nav {
-		display: flex;
-		align-items: center;
+    nav {
+        display: flex;
+        align-items: center;
         gap: var(--fluid-4-20);
-	}
-	a {
-		color: inherit;
-		text-decoration: none;
+        position: relative;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .links {
+		display: flex;
+		gap: var(--fluid-4-20);
 	}
     .page-link {
         font-size: clamp(0.625rem, 0.292rem + 1.6393vw, 1.5625rem);
+        white-space: nowrap;
     }
-	.icon {
-		display: flex;
-		align-items: center;
-		gap: var(--space-s);
-		.image {
-			aspect-ratio: 1 / 1;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-            /* temp */
+    .icon {
+        display: flex;
+        align-items: center;
+        gap: var(--space-s);
+        .image {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
             width: var(--step--2);
             height: var(--step--2);
-		}
-		span {
-			font-size: var(--fluid-10-36);
-			padding-left: var(--padding);
-			padding-bottom: var(--space-xs);
-		}
-	}
+        }
+        span {
+            font-size: var(--fluid-10-36);
+            padding-left: var(--padding);
+            padding-bottom: var(--space-xs);
+            white-space: nowrap;
+        }
+    }
     .spacer {
         flex-grow: 1;
     }
+    .hamburger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 4px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 4px;
+		color: inherit;
+		width: 20px;
+		flex-shrink: 0;
+		span {
+			display: block;
+			width: 100%;
+			height: 2px;
+			background: currentColor;
+			transition: transform 0.3s, opacity 0.3s;
+		}
+		align-self: center;
+    	margin-bottom: var(--space-xs);
+	}
+    nav.open .hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    nav.open .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    nav.open .hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 
+	.close {
+		display: none;
+		background: none;
+		border: none;
+		color: inherit;
+		font-size: var(--step-2);
+		cursor: pointer;
+		align-self: flex-end;
+		padding: var(--space-s);
+	}
+
+    @media (max-width: 768px) {
+		.close {
+			display: block;
+		}
+        .hamburger {
+            display: flex;
+        }
+        .spacer {
+            display: none;
+        }
+        .links {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: var(--space-m);
+			background: #060d49;
+			background-image: radial-gradient(#001b3d, #060d49, #000000);
+			z-index: 100;
+		}
+		.page-link {
+			font-size: var(--step-1);
+		}
+        nav.open .links {
+            display: flex;
+        }
+    }
 </style>
