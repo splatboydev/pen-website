@@ -6,6 +6,9 @@ import { Image } from 'astro:assets';
 
 const icons = import.meta.glob<{default: ImageMetadata}>('../assets/icons/resources/*.svg', { eager: true });
 const imageFor = (name: string) => icons[`../assets/icons/resources/${name}-light.svg`].default;
+
+const statsRequest = await fetch("https://api.npoint.io/afd005d8b694ba8271fe");
+const stats = await statsRequest.json();
 ---
 
 <Layout title="PEN | Home">
@@ -37,19 +40,19 @@ const imageFor = (name: string) => icons[`../assets/icons/resources/${name}-ligh
 		<p>Check out our progress in empowering students!</p>
 		<div class="impact-cards">
 			<div class="impact-card">
-				<div class="card-value"><em>9</em></div>
+				<div class="card-value"><em>{stats.materials}</em></div>
 				<div class="card-label">Study Materials</div>
 			</div>
 			<div class="impact-card">
-				<div class="card-value"><em>50</em></div>
+				<div class="card-value"><em>{stats.sessions}</em></div>
 				<div class="card-label">Weekly Tutoring Sessions</div>
 			</div>
 			<div class="impact-card">
-				<div class="card-value"><em>250</em></div>
+				<div class="card-value"><em>{stats.students}</em></div>
 				<div class="card-label">Students using our Resources</div>
 			</div>
 			<div class="impact-card">
-				<div class="card-value"><em>400</em></div>
+				<div class="card-value"><em>{stats.hours}</em></div>
 				<div class="card-label">Hours Committed</div>
 			</div>
 		</div>
