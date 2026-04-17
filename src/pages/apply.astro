@@ -39,8 +39,8 @@ import LinkButton from "../components/LinkButton.astro";
 
 <style>
 	.title {
-		font-size: 2rem;
-		margin-top: 0.5em;
+		font-size: var(--step-3);
+		margin-top: var(--space-s);
 		font-family: var(--font-montserrat);
 		text-align: center;
 		h1 {
@@ -49,24 +49,45 @@ import LinkButton from "../components/LinkButton.astro";
 	}
 	h2 {
 		font-family: var(--font-montserrat);
-		margin: 0;
-		margin-bottom: 0.25em;
+		margin: 0 0 0.25em;
 	}
 	.subtitle {
 		text-align: center;
 		max-width: 50em;
 		margin: 0 auto;
+		font-size: var(--step-0);
 	}
 	section {
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
-		gap: 3em;
-		margin: 4em 0;
+		gap: var(--space-xl);
+		margin: var(--space-2xl) auto;
+		max-width: 70rem;
+		padding: 0 var(--space-m);
+	}
+	.text-content {
+		flex: 1;
 	}
 	.image {
-		width: 16em;
-		height: 16em;
+		width: 18em;
+		height: 18em;
 		background: white;
 		flex-shrink: 0;
+		border-radius: var(--space-2xs);
+	}
+
+	@media (max-width: 768px) {
+		section {
+			flex-direction: column;
+			margin: var(--space-xl) auto;
+		}
+		section:nth-child(even) {
+			flex-direction: column;
+		}
+		.image {
+			width: 100%;
+			height: 12em;
+		}
 	}
 </style>

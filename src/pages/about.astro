@@ -88,11 +88,18 @@ import renaming from "../assets/img/about/renaming.png";
 	}
 	.bottom {
 		text-align: center;
+		max-width: 70rem;
+		margin: var(--space-2xl) auto;
+		padding: 0 var(--space-m);
+		text-wrap: balance;
 	}
 	.big {
 		font-size: calc(var(--step-5) * 1.5);
 	}
 	.gallery-section {
+		max-width: 70rem;
+		margin: var(--space-2xl) auto;
+		padding: 0 var(--space-m);
 		text-align: center;
 		p {
 			margin: 0;
@@ -104,10 +111,10 @@ import renaming from "../assets/img/about/renaming.png";
 	}
 	.gallery {
 		display: grid;
-		padding: 0 var(--space-m);
+		padding: 0;
 		grid-template-columns: 1fr 1fr;
-		gap: var(--space-xs);
-		margin-top: var(--space-xs);
+		gap: var(--space-m);
+		margin-top: var(--space-m);
 	}
 	.gallery-entry {
 		display: flex;
@@ -116,33 +123,66 @@ import renaming from "../assets/img/about/renaming.png";
 		gap: var(--space-2xs);
 	}
 	.gallery-image {
-		width: var(--space-xxl);
+		width: 100%;
 		img {
-			width: var(--space-xxl);
+			width: 100%;
 			height: auto;
+			border-radius: var(--space-3xs);
 		}
 	}
 	h1 {
-		margin: var(--step--2) 0;
+		margin: var(--space-2xs) 0;
 	}
 	.main-content {
 		display: flex;
-		gap: var(--space-xs);
+		gap: var(--space-xl);
+		max-width: 70rem;
+		margin: var(--space-l) auto;
+		padding: 0 var(--space-m);
+		align-items: flex-start;
+	}
+	.main-content-left {
+		flex: 1;
 	}
 	.main-content-right {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		flex-shrink: 0;
+		width: 24em;
 		.image {
-			width: calc(var(--space-l) * 12);
-			height: calc(var(--space-xl) * 12);
-			background-color: #ffffff;
+			width: 100%;
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
+	}
+	.image-title {
+		font-size: var(--step--1);
+		text-align: center;
+		font-style: italic;
+		margin-top: var(--space-2xs);
 	}
 	.title {
 		font-size: var(--step-5);
 		margin-top: var(--space-2xs);
 		font-family: var(--font-montserrat);
 		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.main-content {
+			flex-direction: column;
+		}
+		.main-content-right {
+			width: 100%;
+		}
+		.gallery {
+			grid-template-columns: 1fr;
+		}
+		.big {
+			font-size: var(--step-5);
+		}
 	}
 </style>

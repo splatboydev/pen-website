@@ -26,7 +26,12 @@ const board = [
 		name: "Ben Fung",
 		title: "Head Tutor",
 		image: "Ben Fung Exec.jpg",
-	}
+	},
+	{
+		name: "Lucas Moss",
+		title: "Volunteer Web Developer",
+		image: "Lucas.jpg",
+	},
 ];
 
 const tutors = [
@@ -89,7 +94,7 @@ const tutors = [
 		name: "Lucy Dong",
 		title: "Math Tutor",
 		image: "Lucy Dong.jpeg",
-	}
+	},
 	{
 		name: "Amber Zhang",
 		title: "Math Tutor",
@@ -230,7 +235,7 @@ const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 			width: fit-content;
 		}
 		.board-grid-top {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(1, 1fr);
 		}
 		.board-grid {
 			grid-template-columns: repeat(4, 1fr);
