@@ -41,19 +41,19 @@ const stats = await statsRequest.json();
 		<div class="impact-cards">
 			<div class="impact-card">
 				<div class="card-value"><em>{stats.materials}</em></div>
-				<div class="card-label">Study Materials</div>
+				<div class="card-label">Study materials</div>
 			</div>
 			<div class="impact-card">
 				<div class="card-value"><em>{stats.sessions}</em></div>
-				<div class="card-label">Weekly Tutoring Sessions</div>
+				<div class="card-label">Weekly tutoring sessions</div>
 			</div>
 			<div class="impact-card">
 				<div class="card-value"><em>{stats.students}</em></div>
-				<div class="card-label">Students using our Resources</div>
+				<div class="card-label">Students in sessions</div>
 			</div>
 			<div class="impact-card">
 				<div class="card-value"><em>{stats.hours}</em></div>
-				<div class="card-label">Hours Committed</div>
+				<div class="card-label">Hours committed</div>
 			</div>
 		</div>
 		<div class="impact-box">Serving students in 10 schools around the globe.</div>
@@ -236,7 +236,7 @@ const stats = await statsRequest.json();
 				}
 				.card-desc {
 					font-size: var(--space-0);
-					text-align: center;
+					text-align: left;
 					margin: 0 var(--space-s);
 				}
 			}

@@ -1,7 +1,15 @@
+---
+import { Image } from "astro:assets";
+
+import Icon from "../assets/icons/icon-placeholder.svg"
+---
+
 <footer>
 	<article>
 		<section class="pen">
-			<div class="gray"><div class="image"></div> <span>Pacific Education Network</span></div>
+			<div class="gray"><div >
+				<Image src={Icon} alt="" class="image"/>
+			</div> <span>Pacific Education Network</span></div>
 			<div>We help by providing better access to education.</div>
 		</section>
 		<section class="contact">
@@ -12,7 +20,7 @@
 		</section>
 	</article>
 	<section class="bottom">
-		<div>© 2025 Pacific Education Network (Society). All rights reserved.</div>
+		<div>© 2026 Pacific Education Network (Society). All rights reserved.</div>
 		<div>Privacy Policy</div>
 	</section>
 </footer>

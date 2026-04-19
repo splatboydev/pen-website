@@ -1,8 +1,11 @@
 ---
 import Word from "../components/Word.astro";
 import Layout from "../layouts/Layout.astro";
-import Launch from "../assets/icons/launch.svg";
 import LinkButton from "../components/LinkButton.astro";
+import { Image } from "astro:assets";
+
+const icons = import.meta.glob<{default: ImageMetadata}>('../assets/icons/resources/*.svg', { eager: true });
+const imageFor = (name: string) => icons[`../assets/icons/resources/${name}-light.svg`].default;
 ---
 
 <Layout title = "PEN | Apply">
@@ -20,19 +23,23 @@ import LinkButton from "../components/LinkButton.astro";
 				You don’t have to learn alone! Connect with caring, qualified, and passionate tutors who are ready to support
 				you at your pace and help you reach your goals.
 			</p>
-			<LinkButton href="/todo">Find a Tutor!</LinkButton>
+			<LinkButton href="https://forms.gle/yePxF1p6JSNqcd8R8">Find a Tutor!</LinkButton>
 		</div>
-		<div class="image"></div>
+		<div>
+			<Image class="image" src={imageFor("student")} alt=""/>
+		</div>
 	</section>
 	<section>
-		<div class="image"></div>
+		<div>
+			<Image class="image" src={imageFor("books")} alt=""/>
+		</div>
 		<div class="text-content">
 			<h2>Ready to demonstrate your abilities?</h2>
 			<p>
 				Share your knowledge. Shape a future. Make a difference. Join the Pacific Network Education as a tutor and help
 				students learn, grow, and succeed, one session at a time. Flexible times and low workload!
 			</p>
-			<LinkButton href="/todo"> Sign Up to Teach</LinkButton>
+			<LinkButton href="https://forms.gle/mitpnMZ8ZhozAMVT6"> Sign Up to Teach</LinkButton>
 		</div>
 	</section>
 </Layout>
@@ -52,8 +59,8 @@ import LinkButton from "../components/LinkButton.astro";
 		margin: 0 0 0.25em;
 	}
 	.subtitle {
-		text-align: center;
-		max-width: 50em;
+		text-align: left;
+		max-width: 40em;
 		margin: 0 auto;
 		font-size: var(--step-0);
 	}
