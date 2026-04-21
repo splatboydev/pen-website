@@ -4,15 +4,19 @@ const icons = import.meta.glob('../assets/icons/resources/*.svg', { eager: true,
 interface Props {
     name: string;
     class?: string;
+    href?: string;
 }
 
-const { name, class: className } = Astro.props;
+const { name, class: className, href } = Astro.props;
 const svg = icons[`../assets/icons/resources/${name}-light.svg`] as string;
 ---
-<span class:list={["icon", className]}>
+<a href={href} class:list={["icon", className]}>
     <Fragment set:html={svg} />
-</span>
+</a>
 <style>
+    a {
+        all: unset;
+    }
     .icon {
         display: inline-flex;
         width: 1em;

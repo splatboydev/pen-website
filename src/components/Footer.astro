@@ -18,8 +18,8 @@ import Icon from "./Icon.astro"
 				<span data-obfuscation="0">yangyicheng009@gmail.com</span> • Vancouver, BC
 			</div>
 			<div class="social-wrapper">
-				<Icon name="tiktok" class="social-icon" />
-				<Icon name="instagram" class="social-icon" />
+				<Icon name="tiktok" class="social-icon" href="" />
+				<Icon name="instagram" class="social-icon" href="https://www.instagram.com/pacific.education_network" />
 				<Icon name="youtube" class="social-icon" />
 			</div>
 		</section>
@@ -31,9 +31,6 @@ import Icon from "./Icon.astro"
 </footer>
 
 <style>
-    .contact {
-        font-size: var(--step-0);
-    }
 	.social-wrapper {
 		width: 6em !important;
 		flex-shrink: 0;
@@ -42,6 +39,10 @@ import Icon from "./Icon.astro"
 	.social-icon {
 		font-size: 20em;
 	}
+
+    .contact {
+        font-size: var(--step-0);
+    }
     footer {
 		background-color: #000000;
 		border-top: 2px solid #545454;
@@ -102,6 +103,10 @@ import Icon from "./Icon.astro"
 		.bottom {
 			flex-direction: row;
 			justify-content: space-between;
+		}
+		.social-wrapper {
+			margin-left: 0;
+			margin-right: auto;
 		}
 	}
 </style>
