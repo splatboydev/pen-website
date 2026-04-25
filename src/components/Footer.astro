@@ -106,14 +106,15 @@ import Icon from "./Icon.astro"
 	}
 
 </style>
-<style is:global>
+<!-- required because of the icon component - shouldn't use much data, but if you have an alternative method do tell please  -->
+<style is:global> 
 	.social-icon {
 		--icon-size: 3em;
 	}
 
 	@media (768px <= width < 1024px) {
 		.social-wrapper {
-
+			margin-left: auto;
 		}
 		.social-icon {
 			--icon-size = em;
