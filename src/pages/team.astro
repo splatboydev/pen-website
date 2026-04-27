@@ -40,75 +40,38 @@ const board = [
 
 const tutors = [
 	{
-		name: "Emad Badei",
-		title: "Biology Tutor",
-		image: "Emad Badei Tutor.jpeg",
+		subject: "Mathematics",
+		members: [
+			{ name: "Hyobeen Ahn", title: "Math Tutor", image: "Hyobeen Ahn Tutor.jpg" },
+			{ name: "Amir Shekari", title: "Math Tutor", image: "Amir Shekari Tutor.jpeg" },
+			{ name: "Lucy Dong", title: "Math Tutor", image: "Lucy Dong.jpeg" },
+			{ name: "Anushka Mukherjee", title: "Math & English Tutor", image: "Anushka Mukherjee Tutor.jpeg" },
+			{ name: "Meghan Sandhu", title: "Math Tutor", image: "Meghan Sandhu Tutor.png" },
+			{ name: "Ethan Fu", title: "Math Tutor", image: "Ethan Fu Math Tutor.jpg" },
+		]
 	},
 	{
-		name: "James Lin",
-		title: "English Tutor",
-		image: "James Lin Tutor.JPG",
+		subject: "Sciences",
+		members: [
+			{ name: "Emad Badei", title: "Biology Tutor", image: "Emad Badei Tutor.jpeg" },
+			{ name: "Matt Chong", title: "Physics Tutor", image: "Matt Chong Tutor.jpg" },
+			{ name: "Ayesha Klair", title: "Biology Tutor", image: "Ayesha Klair Tutor.jpeg" },
+		]
 	},
 	{
-		name: "Hyobeen Ahn",
-		title: "Math Tutor",
-		image: "Hyobeen Ahn Tutor.jpg",
-	},
-	{
-		name: "Matt Chong",
-		title: "Physics Tutor",
-		image: "Matt Chong Tutor.jpg",
-	},
-	{
-		name: "Gillian Xie",
-		title: "English Tutor",
-		image: "Gillian Xie Tutor.png",
-	},
-	{
-		name: "Emma Jia",
-		title: "English Tutor",
-		image: "Emma Jia Tutor.jpeg",
-	},
-	{
-		name: "Ayesha Klair",
-		title: "Biology Tutor",
-		image: "Ayesha Klair Tutor.jpeg",
-	},
-	{
-		name: "Anushka Mukherjee",
-		title: "Math/ English Tutor",
-		image: "Anushka Mukherjee Tutor.jpeg",
-	},
-	{
-		name: "Amir Shekari",
-		title: "Math Tutor",
-		image: "Amir Shekari Tutor.jpeg",
-	},
-	{
-		name: "Mike Zhang",
-		title: "English Tutor",
-		image: "Mike Zhang Tutor.jpeg",
-	},
-	{
-		name: "Lucy Dong",
-		title: "Math Tutor",
-		image: "Lucy Dong.jpeg",
-	},
-	{
-		name: "Amy Lu",
-		title: "English Tutor",
-		image: "Amy Lu Tutor.png",
-	},
-	{
-		name: "Chloe Fu",
-		title: "English Tutor",
-		image: "Chloe Fu Tutor.jpg",
-	},
-	{
-		name: "Meghan Sandhu",
-		title: "Math Tutor",
-		image: "Meghan Sandhu Tutor.png",
-	},
+		subject: "Languages",
+		members: [
+			{ name: "James Lin", title: "English Tutor", image: "James Lin Tutor.JPG" },
+			{ name: "Gillian Xie", title: "English Tutor", image: "Gillian Xie Tutor.png" },
+			{ name: "Emma Jia", title: "English Tutor", image: "Emma Jia Tutor.jpeg" },
+			{ name: "Mike Zhang", title: "English Tutor", image: "Mike Zhang Tutor.jpeg" },
+			{ name: "Amy Lu", title: "English Tutor", image: "Amy Lu Tutor.png" },
+			{ name: "Chloe Fu", title: "English Tutor", image: "Chloe Fu Tutor.jpg" },
+			{ name: "Anushka Mukherjee", title: "Math / English Tutor", image: "Anushka Mukherjee Tutor.jpeg" },
+			{ name: "Jahnavi Bhosale", title: "English Tutor", image: "Jahnavi Bhosale English Tutor.jpeg" },
+			{ name: "Brianna Barbucci", title: "French Tutor", image: "Brianna Barbucci French Tutor.jpeg" },
+		]
+	}
 ];
 
 const images = import.meta.glob<{ default: ImageMetadata }>("../assets/img/team/*", { eager: true });
@@ -165,27 +128,42 @@ const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 	<section class="name-section">
 		<h2>Tutors</h2>
 		<p>
-			Meet our hardworking tutors who bring Pacific Education Network’s free teaching to life! From publishing resources,
+			Meet our hardworking tutors who bring Pacific Education Network's free teaching to life! From publishing resources,
 			ensuring consistency, creating opportunities for growth, and fostering genuine connection, these hardworking
 			individuals are the reason why the Pacific Education Network is able to empower individuals students in their
 			pursuit of knowledge.
 		</p>
-		<div class="tutor-grid">
-			{
-				tutors.map(x => (
-					<div class="grid-item tutor-item">
-						<div class="portrait-image">
-							<Image src={imageFor(x.image)} alt={x.name} inferSize />
+		{tutors.map(group => (
+			<div class="tutor-group">
+				<h3 class="subject-heading">{group.subject}</h3>
+				<div class="tutor-grid">
+					{group.members.map(x => (
+						<div class="grid-item tutor-item">
+							<div class="portrait-image">
+								<Image src={imageFor(x.image)} alt={x.name} inferSize />
+							</div>
+							<h3 class="name">{x.name}</h3>
+							<p class="title">{x.title}</p>
 						</div>
-						<h3 class="name">{x.name}</h3>
-						<p class="title">{x.title}</p>
-					</div>
-				))
-			}
-		</div>
+					))}
+				</div>
+			</div>
+		))}
 	</section>
 
 	<style>
+		.tutor-group {
+			margin-top: var(--space-xl);
+		}
+
+		.subject-heading {
+			text-align: center;
+			font-family: var(--font-glacial);
+			font-size: var(--step-1);
+			margin-bottom: 0em;
+			font-weight: 600;
+		}
+
 		.spacer {
 			height: 6em;
 		}
@@ -247,9 +225,12 @@ const imageFor = (name: string) => images[`../assets/img/team/${name}`].default;
 		}
 
 		@media (1024px <= width) {
-			.board-grid, .tutor-grid {
-				grid-template-columns: repeat(4, 1fr);
+			.tutor-grid {
+				grid-template-columns: repeat(3, 1fr);
 				max-width: 80em;
+			}
+			.board-grid {
+				grid-template-columns: repeat(4, 1fr);
 			}
 			.board-grid-top {
 				grid-template-columns: repeat(2, 1fr);
